@@ -35,7 +35,29 @@ CMAIN:
 		;xor r15, r15
 		lea rcx, [numArr] ; load address of array to r15
                     
+                PRINT_STRING "Iterative Merge Sort Algorithm in x86-64 Assembly Language"
+                NEWLINE
+                NEWLINE
+                PRINT_STRING "Given Array: "
+                NEWLINE
+                
+PRINT_GIVEN_ARRAY:
+                cmp r10, [arraySize]
+                jge START_ALGORITHM
+                PRINT_DEC 4, [rcx+4*r10]
+                PRINT_STRING " "
+                inc r10
+                jmp PRINT_GIVEN_ARRAY
+                
+                
+                ; clear r10 register
+                xor r10, r10
+                NEWLINE
 
+                
+                
+                
+START_ALGORITHM:                
 
 		; initialize n - 1 as limit for loops
                  mov rdx, [arraySize]
@@ -301,6 +323,8 @@ END:
  
         ; print array
         xor r15, r15
+        NEWLINE
+        NEWLINE
         PRINT_STRING "Sorted Array:"
         NEWLINE
  
