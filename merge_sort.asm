@@ -3,9 +3,9 @@
 
 section .data
         ; integer array to be sorted
-        numArr dd 8, 7, 6, 5, 4, 3, 2, 1, -1, -999, 500, -500
+        numArr dd -5, 4, 3, 3, 1, 9, 15, 14, 27, 0, -13
         ; number of elements in numArr
-        arraySize dq 12
+        arraySize dq 11
 	left_array times 1000 dq -999
 	right_array times 1000 dq -999
 	curr_size dq 0
