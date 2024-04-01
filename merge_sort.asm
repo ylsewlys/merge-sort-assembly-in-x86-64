@@ -2,7 +2,9 @@
 
 
 section .data
+        ; integer array to be sorted
         numArr dd 8, 7, 6, 5, 4, 3, 2, 1, -1, -999, 500, -500
+        ; number of elements in numArr
         arraySize dq 12
 	left_array times 1000 dq -999
 	right_array times 1000 dq -999
@@ -21,7 +23,6 @@ section .text
 global CMAIN
 CMAIN:
     mov rbp, rsp; for correct debugging
-		; clear non-volatile registers
 		xor rax, rax
 		xor rbx, rbx ; to be used as temporary register for limit
 		xor rsi, rsi
@@ -139,9 +140,6 @@ INIT_LEFT_ARRAY:
 		; r14 += i
 		add r14, r11
 
-
-		
-
 		; r12 = arr[l + i]
 		xor r12, r12
 		mov r12, [rcx+4*r14]
@@ -152,8 +150,6 @@ INIT_LEFT_ARRAY:
 		mov [rsi+8*r11], r12
 
 		
-
-
 		inc r11
 		jmp INIT_LEFT_ARRAY
 		
@@ -192,11 +188,6 @@ INIT_RIGHT_ARRAY:
 
 
 		mov r12, [rdi+8*r11]
-
-
-
-
-		
 
 		
 		inc r11
